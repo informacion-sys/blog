@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!--
+  =============================
+  TEMPLATE DE POST (HTML listo para n8n)
+  
+  ▶ Usa los PLACEHOLDERS {{MAYUSCULAS}} para reemplazar con tu flujo n8n/IA.
+  ▶ Mantiene tu HEADER y FOOTER sin cambios.
+  ▶ Requiere css/style.css (tu base) + css/post.css (específico del post).
+  
+  PLACEHOLDERS CLAVE (mínimos):
+  - {{POST_TITLE}}, {{POST_EXCERPT}}, {{POST_URL}}, {{POST_SLUG}}
+  - {{PUBLISHED_ISO}}, {{MODIFIED_ISO}}, {{PUBLISHED_HUMAN}}
+  - {{FEATURE_IMAGE_URL}}, {{FEATURE_IMAGE_ALT}}, {{FEATURE_IMAGE_CAPTION}}
+  - {{AUTHOR_PHOTO_URL}}, {{AUTHOR_BIO}}
+  - {{CATEGORY}}, {{KEYWORDS_CSV}}, {{TAGS_CSV}}
+  - {{TAGS_META_HTML}}   (opcional: metas <meta property="article:tag"> ya renderizadas)
+  - {{ARTICLE_BODY_HTML}} (HTML del contenido: <h2>, <p>, <figure>…)
+  - {{NEWSLETTER_FORM_ACTION}} o {{BASIN_FORM_ID}} (elige uno)
+  - {{PREV_POST_URL}}, {{PREV_POST_TITLE}}, {{NEXT_POST_URL}}, {{NEXT_POST_TITLE}}
+-->
+<html lang="es">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SPTGZXB12W"></script>
+  <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-SPTGZXB12W');</script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- ====== SEO del post ====== -->
+  <title>{{POST_TITLE}} | Amics del Col·leccionisme de Guardiola de Berguedà</title>
+  <meta name="description" content="{{POST_EXCERPT}}" />
+  <meta name="author" content="Enrique Rivas" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <link rel="canonical" href="{{POST_URL}}" />
+  <meta name="keywords" content="{{KEYWORDS_CSV}}" />
+
+  <!-- Open Graph / Twitter (tipo artículo) -->
+  <meta property="og:site_name" content="Amics del Col·leccionisme de Guardiola de Berguedà" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{{POST_TITLE}}" />
+  <meta property="og:description" content="{{POST_EXCERPT}}" />
+  <meta property="og:url" content="{{POST_URL}}" />
+  <meta property="og:image" content="{{FEATURE_IMAGE_URL}}" />
+  <meta property="article:published_time" content="{{PUBLISHED_ISO}}" />
+  <meta property="article:modified_time" content="{{MODIFIED_ISO}}" />
+  <meta property="article:author" content="Enrique Rivas" />
+  <meta property="article:section" content="{{CATEGORY}}" />
+  <!-- Opciones de etiquetado: usa TAGS_META_HTML si lo generas en n8n, si no, deja TAGS_CSV y prescinde de metas repetidas -->
+  {{TAGS_META_HTML}}
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{POST_TITLE}}" />
+  <meta name="twitter:description" content="{{POST_EXCERPT}}" />
+  <meta name="twitter:image" content="{{FEATURE_IMAGE_URL}}" />
+
+  <!-- Iconos / idioma / contacto -->
+  <meta name="language" content="es" />
+  <meta name="contact" content="amicsgb@gmail.com" />
+  <link rel="icon" href="../icon/logo.ico">
+  <link rel="apple-touch-icon" href="../icon/logo.ico">
+
+  <!-- CSS (usa tu hoja y la específica de post) -->
+  <link rel="stylesheet" href="css/style.css?v=0">
+  <link rel="stylesheet" href="css/post.css?v=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ====== Datos estructurados ====== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://amicscgb.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://amicscgb.com/blog/"},
+      {"@type": "ListItem", "position": 3, "name": {{"@value": "{{POST_TITLE}}", "@language": "es"}}, "item": "{{POST_URL}}"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "{{POST_URL}}"},
+    "headline": "{{POST_TITLE}}",
+    "description": "{{POST_EXCERPT}}",
+    "image": ["{{FEATURE_IMAGE_URL}}"],
+    "publisher": {"@type": "Organization", "name": "Amics del Col·leccionisme de Guardiola de Berguedà", "logo": {"@type": "ImageObject", "url": "https://amicscgb.com/icon/logo.png"}},
+    "datePublished": "{{PUBLISHED_ISO}}",
+    "dateModified": "{{MODIFIED_ISO}}",
+    "inLanguage": "es-ES",
+    "articleSection": "{{CATEGORY}}",
+    "keywords": "{{KEYWORDS_CSV}}"
+  }
+  </script>
+</head>
+<body class="main-layout">
+  <script>
+    // Restaurar scroll al recargar
+    window.addEventListener("load", function(){
+      const y = localStorage.getItem("scrollY");
+      if (y !== null) { window.scrollTo(0, parseInt(y)); localStorage.removeItem("scrollY"); }
+    });
+  </script>
+
+  <!-- ================= HEADER (NO TOCAR) ================= -->
+  <header class="header">
+    <div class="header_logo">
+      <a href="../index">
+        <img alt="logo" src="../../images/logo.png">
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index">Inicio</a></li>
+        <li><a href="../conocernos">Conócenos</a></li>
+        <li><a href="../monedas">Monedas</a></li>
+        <li><a href="../medallas">Medallas</a></li>
+        <li><a href="../billetes/page-1">Billetes</a></li>
+        <li><a href="../xapes">Xapes</a></li>
+        <li><a href="../contactos">Contactos</a></li>
+      </ul>
+    </nav>
+    <div class="header_2">
+      <button id="toggleNav"><img alt="menu" src="../images/menu.png"></button>
+      <div id="navMenu">
+        <ul>
+          <li><a href="../index">Inicio</a></li>
+          <li><a href="../conocernos">Conócenos</a></li>
+          <li><a href="../monedas">Monedas</a></li>
+          <li><a href="../medallas">Medallas</a></li>
+          <li><a href="../billetes/page-1">Billetes</a></li>
+          <li><a href="../xapes">Xapes</a></li>
+          <li><a href="../contactos">Contactos</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== Migas ====== -->
+  <nav class="container mx-auto w-[92%] max-w-[1200px] text-sm text-slate-600 mt-4 mb-2" aria-label="Breadcrumb">
+    <ol class="inline-flex items-center gap-2">
+      <li><a class="hover:underline" href="../index">Inicio</a></li>
+      <li>/</li>
+      <li><a class="hover:underline" href="/blog/page-1">Blog</a></li>
+      <li>/</li>
+      <li class="text-slate-800 font-semibold" aria-current="page">{{POST_TITLE}}</li>
+    </ol>
+  </nav>
+
+  <!-- ================= CUERPO DEL POST ================= -->
+  <div class="conten">
+    <article class="content" itemscope itemtype="https://schema.org/Article">
+      <header>
+        <h1 itemprop="headline">{{POST_TITLE}}</h1>
+        <p class="meta" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <span>Publicado el <time itemprop="datePublished" datetime="{{PUBLISHED_ISO}}">{{PUBLISHED_HUMAN}}</time></span>
+          por <span itemprop="name">Enrique Rivas</span> · <span id="readingTime">— min de lectura</span>
+        </p>
+      </header>
+
+      <!-- Imagen destacada -->
+      <figure class="my-3">
+        <img src="{{FEATURE_IMAGE_URL}}" alt="{{FEATURE_IMAGE_ALT}}" width="1200" height="630" loading="eager" />
+        <figcaption class="meta">{{FEATURE_IMAGE_CAPTION}}</figcaption>
+      </figure>
+
+      <!-- Barra de compartir -->
+      <div class="mt-3 mb-4 flex flex-wrap gap-2 text-sm">
+        <span class="publicado">Compartir:</span>
+        <a id="shareTw" class="underline" href="#" rel="noopener" target="_blank">Twitter</a>
+        <a id="shareFb" class="underline" href="#" rel="noopener" target="_blank">Facebook</a>
+        <a id="shareWa" class="underline" href="#" rel="noopener" target="_blank">WhatsApp</a>
+        <a id="shareLn" class="underline" href="#" rel="noopener" target="_blank">LinkedIn</a>
+        <button id="copyLink" class="underline">Copiar enlace</button>
+      </div>
+
+      <!-- Índice (generado por JS) -->
+      <aside class="rounded-lg border p-3 bg-white" aria-label="Tabla de contenidos">
+        <strong>Contenido</strong>
+        <ol id="tocList" class="mt-2" style="line-height:1.9"></ol>
+      </aside>
+
+      <!-- Contenido del artículo (inyectado por IA) -->
+      <section class="js-article" itemprop="articleBody">
+        {{ARTICLE_BODY_HTML}}
+      </section>
+
+      <!-- CTA / Newsletter -->
+      <section class="mt-6 rounded-xl border p-4 bg-white">
+        <h3 class="text-xl font-bold">¿Te gustó el contenido?</h3>
+        <p class="mt-1">Suscríbete y recibe nuevas guías de numismática e inversión.</p>
+        <!-- Opción A: ACTION clásico -->
+        <form class="mt-3 grid gap-2 sm:grid-cols-[1fr_auto]" action="https://usebasin.com/f/17b8c2c0351b" method="post" data-basin-form data-basin-spam-protection="recaptcha">
+          <label class="sr-only" for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="Tu email" class="px-3 py-2 rounded-md border" />
+          <input type="hidden" name="sitio_web" value="{{POST_TITLE}}">
+          <button class="px-4 py-2 rounded-md bg-emerald-600 text-white font-bold">Suscribirme</button>
+        </form>
+        <!-- Opción B: UseBasin (si prefieres) -->
+        <!-- <form class="mt-3 grid gap-2 sm:grid-cols-[1fr_auto]" method="post" data-basin-form="{{BASIN_FORM_ID}}"> ... -->
+        <small class="meta">Al suscribirte aceptas nuestra <a class="underline" target="_blank" href="../politica-de-privacidad">política de privacidad</a>.</small>
+      </section>
+    </article>
+  </div>
+
+  <!-- ================= FOOTER (NO TOCAR) ================= -->
+  <footer>
+    <div class="footer-container">
+      <p>📍 Dirección: Guardiola del Bergueda</p>
+      <p>📞 Teléfono: 677520522</p>
+      <p>✉️ Email: informacion@amicscgb.com </p>
+      <a href="https://www.facebook.com/people/Amics-Colleccionisme-Guardiola-de-Bergued%C3%A0/100068580848046/" target="_blank" class="facebook-link">Síguenos en Facebook</a>
+    </div>
+    <div class="legal">
+      <a href="aviso-legal" target="_blank">Aviso legal</a>
+      <p>|</p>
+      <a href="politica-de-privacidad" target="_blank">Política de privacidad</a>
+      <p>|</p>
+      <a href="politica-de-cookies" target="_blank">Política de cookies</a>
+    </div>
+  </footer>
+
+  <!-- Scripts originales -->
+  <script src="https://js.usebasin.com/v2.4.0.min.js" async></script>
+  <script src="../protecciones.js?v=0"></script>
+
+  <!-- ====== Utilidades del post: tiempo de lectura, compartir y TOC ====== -->
+  <script>
+    (function(){
+      // Tiempo de lectura (~220 wpm)
+      var bodyEl = document.querySelector('.js-article');
+      var rtEl = document.getElementById('readingTime');
+      if(bodyEl && rtEl){
+        var words = (bodyEl.innerText || '').trim().split(/\s+/).length;
+        var minutes = Math.max(2, Math.round(words / 220));
+        rtEl.textContent = minutes + ' min de lectura';
+      }
+
+      // Enlaces de compartir
+      var url = encodeURIComponent('{{POST_URL}}');
+      var title = encodeURIComponent('{{POST_TITLE}}');
+      var share = {
+        tw: 'https://twitter.com/intent/tweet?url='+url+'&text='+title,
+        fb: 'https://www.facebook.com/sharer/sharer.php?u='+url,
+        wa: 'https://api.whatsapp.com/send?text='+title+'%20'+url,
+        ln: 'https://www.linkedin.com/sharing/share-offsite/?url='+url
+      };
+      var byId = function(id){ return document.getElementById(id); };
+      if(byId('shareTw')) byId('shareTw').href = share.tw;
+      if(byId('shareFb')) byId('shareFb').href = share.fb;
+      if(byId('shareWa')) byId('shareWa').href = share.wa;
+      if(byId('shareLn')) byId('shareLn').href = share.ln;
+      if(byId('copyLink')) byId('copyLink').addEventListener('click', function(){
+        navigator.clipboard.writeText('{{POST_URL}}').then(function(){
+          byId('copyLink').textContent = '¡Copiado!';
+          setTimeout(function(){ byId('copyLink').textContent = 'Copiar enlace'; }, 1500);
+        });
+      });
+
+      // TOC automático (h2)
+      var toc = document.getElementById('tocList');
+      if(toc && bodyEl){
+        var hs = bodyEl.querySelectorAll('h2');
+        hs.forEach(function(h){
+          if(!h.id){ h.id = h.textContent.toLowerCase().replace(/[^a-z0-9ñáéíóúü\s]/gi,'').trim().replace(/\s+/g,'-'); }
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.href = '#'+h.id; a.textContent = h.textContent; a.style.textDecoration = 'underline';
+          li.appendChild(a); toc.appendChild(li);
+        });
+      }
+    })();
+  </script>
+
+  <div class="gtranslate_wrapper"></div>
+  <script>window.gtranslateSettings = {"default_language":"es","native_language_names":true,"languages":["es","fr","ca","en"],"wrapper_selector":".gtranslate_wrapper","float_switcher_open_direction":"bottom"}</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,514 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 10px 20px;
+    color: white;
+}
+
+.header_logo img{
+    width: 75px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+nav ul li a {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #3498db;
+    transform: scale(1.1);
+}
+
+.header_2{
+    display: none;
+}
+
+
+@media (max-width: 1000px){
+    nav{
+        display: none;
+    }
+    .header_2 {
+        display: block;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    #toggleNav img{
+        width: 50px;
+        background-color: transparent !important;
+    }
+    #navMenu {
+        display: none;
+        margin-top: 20px;
+    }
+
+    #navMenu ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    #navMenu ul li {
+        background-color: #333;
+        margin: 5px 0;
+        padding: 10px;
+    }
+
+    #navMenu ul li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+    }
+}
+
+
+        /* Contenedor principal de la sección hero */
+        .hero-section {
+            display: flex;
+            flex-direction: column; /* Apila elementos en móvil */
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f4f8; /* Un fondo claro y moderno */
+            padding: 4rem 1.5rem; /* Espaciado interno */
+            gap: 3rem; /* Espacio entre el contenido y la imagen */
+            text-align: center; /* Centra el texto por defecto */
+            min-height: 80vh; /* Altura mínima para que sea prominente */
+            overflow: hidden; /* Asegura que no haya desbordamientos */
+        }
+
+        /* Contenido de texto de la sección hero */
+        .hero-content {
+            max-width: 48rem; /* Ancho máximo para el contenido de texto */
+            z-index: 10; /* Asegura que el texto esté por encima de cualquier fondo */
+        }
+
+        /* Estilos para el título principal (H1) */
+        .hero-content h1 {
+            font-size: 2.5rem; /* Tamaño de fuente grande para el H1 */
+            font-weight: 700; /* Negrita */
+            color: #1a202c; /* Color oscuro para el texto principal */
+            margin-bottom: 0.75rem; /* Espacio inferior */
+            line-height: 1.2; /* Altura de línea para mejor legibilidad */
+        }
+
+        /* Estilos para el subtítulo (H2) */
+        .hero-content h2 {
+            font-size: 1.5rem; /* Tamaño de fuente para el H2 descriptivo */
+            font-weight: 600; /* Semi-negrita */
+            color: #4a5568; /* Color gris oscuro */
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        /* Estilos para el párrafo descriptivo */
+        .hero-content p {
+            font-size: 1.125rem; /* Tamaño de fuente para la descripción */
+            color: #4a5568;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        /* Contenedor de botones */
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap; /* Permite que los botones se envuelvan en líneas nuevas */
+            justify-content: center;
+            gap: 1.25rem; /* Espacio entre los botones */
+            margin-top: 1.5rem;
+        }
+
+        /* Estilos base para los botones */
+        .btn {
+            display: inline-flex; /* Permite centrar el contenido del botón */
+            align-items: center;
+            justify-content: center;
+            padding: 0.875rem 1.75rem; /* Relleno */
+            border-radius: 0.5rem; /* Bordes redondeados */
+            text-decoration: none; /* Sin subrayado */
+            font-weight: 600; /* Semi-negrita */
+            transition: all 0.3s ease-in-out; /* Transición suave para efectos */
+            font-size: 1rem;
+            white-space: nowrap; /* Evita que el texto del botón se divida */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        }
+
+        /* Estilos para el botón principal */
+        .btn-primary {
+            background-color: #38a169; /* Un verde vibrante (Tailwind: green-600) */
+            color: #ffffff;
+            border: 2px solid #38a169;
+        }
+
+        .btn-primary:hover {
+            background-color: #2f855a; /* Verde más oscuro al pasar el ratón */
+            border-color: #2f855a;
+            transform: translateY(-2px); /* Efecto de elevación */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Estilos para el botón secundario */
+        .btn-secondary {
+            background-color: #4299e1; /* Un azul (Tailwind: blue-500) */
+            color: #ffffff;
+            border: 2px solid #4299e1;
+        }
+
+        .btn-secondary:hover {
+            background-color: #3182ce; /* Azul más oscuro al pasar el ratón */
+            border-color: #3182ce;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Estilos para el botón terciario */
+        .btn-terciary {
+            background-color: #ff8000; /* Un azul (Tailwind: blue-500) */
+            color: #ffffff;
+            border: 2px solid #ff8000;
+        }
+
+        .btn-terciary:hover {
+            background-color: #e68019; /* Azul más oscuro al pasar el ratón */
+            border-color: #e68019;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Contenedor de la imagen */
+        .hero-image-container {
+            flex-shrink: 0; /* Evita que la imagen se encoja */
+            width: 100%; /* Ocupa todo el ancho disponible en móvil */
+            max-width: 38rem; /* Ancho máximo para la imagen en desktop */
+            position: relative; /* Para posicionar elementos dentro si es necesario */
+        }
+
+        .hero-image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.75rem; /* Bordes redondeados para la imagen */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+            display: block; /* Elimina espacio extra debajo de la imagen */
+            object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión */
+        }
+
+        /* Media Queries para Responsividad de la Hero Section */
+        @media (min-width: 768px) {
+            .hero-section {
+                flex-direction: row; /* En pantallas más grandes, el contenido y la imagen se ponen uno al lado del otro */
+                text-align: left; /* Alinea el texto a la izquierda */
+                padding: 6rem 3rem; /* Más espaciado en pantallas grandes */
+                min-height: 70vh; /* Ajusta la altura mínima */
+            }
+
+            .hero-content {
+                order: 1; /* El contenido a la izquierda */
+                padding-right: 3rem; /* Espacio entre el texto y la imagen */
+            }
+
+            .hero-image-container {
+                order: 2; /* La imagen a la derecha */
+                max-width: 50%; /* Limita el ancho de la imagen */
+            }
+
+            .hero-content h1 {
+                font-size: 3.25rem; /* H1 más grande en desktop */
+            }
+
+            .hero-content h2 {
+                font-size: 1.875rem; /* H2 más grande en desktop */
+            }
+
+            .hero-buttons {
+                justify-content: flex-start; /* Alinea los botones a la izquierda */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-section {
+                padding: 8rem 4rem;
+            }
+            .hero-content h1 {
+                font-size: 4rem; /* H1 aún más grande en pantallas muy grandes */
+            }
+        }
+
+/* Estilos para la nueva sección de Asistente de Consulta IA */
+        .ai-assistant-section {
+            background-color: #ffffff; /* Fondo blanco */
+            padding: 4rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid #e2e8f0; /* Línea separadora */
+        }
+
+        .ai-assistant-section h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 2rem;
+        }
+
+        .ai-form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #f8fafc; /* Fondo gris claro para el formulario */
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            color: #4a5568;
+            background-color: #ffffff;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            min-height: 120px;
+            resize: vertical; /* Permite redimensionar verticalmente */
+        }
+
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+        }
+
+        .ask-btn {
+            background-color: #805ad5; /* Morado */
+            color: #ffffff;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-size: 1.125rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .ask-btn:hover {
+            background-color: #6b46c1;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .loading-indicator {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            color: #4a5568;
+            display: none; /* Oculto por defecto */
+        }
+
+        .loading-indicator.active {
+            display: block; /* Visible cuando está activo */
+        }
+
+        .answer-output {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #ecfdf5; /* Fondo verde claro para la respuesta */
+            border: 1px solid #a7f3d0;
+            border-radius: 0.75rem;
+            text-align: left;
+            color: #2d3748;
+            line-height: 1.7;
+            white-space: pre-wrap; /* Preserva los saltos de línea */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .answer-output h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2f855a;
+        }
+
+        .disclaimer {
+            font-size: 0.875rem;
+            color: #718096;
+            margin-top: 1.5rem;
+            padding: 0.75rem;
+            background-color: #edf2f7;
+            border-radius: 0.5rem;
+        }
+
+
+
+
+
+
+
+
+.conten{
+       background-color:transparent;
+       background-image: linear-gradient(180deg, #F2F8FE 0%, #FAFCFF 100%);
+       padding:20px;
+}
+
+.content {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.content img {
+    max-width: 350px;
+    border-radius: 5px;
+}
+
+.content h2 {
+    font-size: 2em;
+    margin: 20px 0 10px;
+}
+
+.content p {
+    font-size: 1.1em;
+    line-height: 2.4;
+    margin: 10px 0;
+}
+
+.content .meta {
+    color: #777;
+    font-size: 0.9em;
+}
+
+
+.publicado{
+    color:#777;
+}
+
+
+
+@media screen and (max-width: 1100px){
+    .conten{
+        display:block;
+    }
+	.content{
+	    width:100%;
+	}
+}
+
+@media screen and (max-width: 450px){
+    .content img {
+        width:100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-container p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Estilo para el enlace de Facebook */
+.facebook-link {
+    color: #1877F2;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.facebook-link i {
+    margin-right: 5px;
+}
+
+.facebook-link:hover {
+    text-decoration: underline;
+}
+.legal{
+    display:flex;
+    justify-content:center;
+    margin-bottom:50px;
+    margin-top:25px;
+    flex-wrap: wrap;
+}
+.legal p{
+    margin-left:10px;
+}
+.legal a{
+    margin-left:10px;
+    color:white;
+}
+.legal a:hover{
+    color:rgba(0,0,0,0.5);
+}
+
+@media print {
+    body {
+        display: none !important; /* Oculta todo el contenido al imprimir */
+    }
+}

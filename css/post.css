@@ -1,0 +1,208 @@
+/* ==================
+   Estilos para POST
+   (CSS específico, encima de style.css)
+   ================== */
+
+/* ----- Tipografía y estructura ----- */
+.content h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #1a202c;
+}
+
+.content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: #2d3748;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.3rem;
+}
+
+.content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  color: #4a5568;
+}
+
+.content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 1.2rem auto;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.content figure {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.content figcaption {
+  font-size: 0.875rem;
+  color: #718096;
+  margin-top: 0.5rem;
+}
+
+/* ----- Meta info ----- */
+.meta {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-bottom: 1rem;
+}
+
+.publicado {
+  color: #718096;
+  font-style: italic;
+}
+
+/* ----- Compartir ----- */
+.content .share-bar,
+.content .mt-3.mb-4 {
+  background: #f9fafb;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.content .share-bar a,
+.content .mt-3.mb-4 a,
+.content .mt-3.mb-4 button {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2b6cb0;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.content .share-bar a:hover,
+.content .mt-3.mb-4 a:hover,
+.content .mt-3.mb-4 button:hover {
+  color: #1a4e85;
+}
+
+/* ----- Tabla de contenidos ----- */
+#tocList {
+  list-style: decimal inside;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+#tocList li a {
+  color: #2b6cb0;
+  text-decoration: underline;
+}
+
+#tocList li a:hover {
+  color: #1a4e85;
+}
+
+/* ----- Newsletter CTA ----- */
+.content section {
+  margin-top: 2rem;
+}
+
+.content section h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+.content form input[type="email"] {
+  padding: 0.75rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.content form button {
+  background-color: #38a169;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.content form button:hover {
+  background-color: #2f855a;
+}
+
+/* ----- Autor box ----- */
+.content .author-box {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background-color: #fff;
+  align-items: center;
+}
+
+.content .author-box img {
+  width: 96px;
+  height: 96px;
+  border-radius: 12px;
+}
+
+.content .author-box strong {
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #1a202c;
+}
+
+.content .author-box p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #4a5568;
+}
+
+/* ----- Navegación entre posts ----- */
+.content nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.content nav a {
+  font-size: 0.95rem;
+  color: #2b6cb0;
+  text-decoration: underline;
+}
+
+.content nav a:hover {
+  color: #1a4e85;
+}
+
+/* ----- Responsividad ----- */
+@media screen and (max-width: 640px) {
+  .content h1 {
+    font-size: 1.8rem;
+  }
+  .content h2 {
+    font-size: 1.25rem;
+  }
+  .content .author-box {
+    flex-direction: column;
+    text-align: center;
+  }
+  .content .author-box img {
+    margin-bottom: 0.5rem;
+  }
+}
